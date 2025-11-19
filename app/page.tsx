@@ -5,6 +5,7 @@ import ContentSection from "@/components/content-3";
 import StatsSection from "@/components/stats";
 import TestimonialsSection from "@/components/testimonials";
 import { TextEffect } from "@/components/ui/text-effect";
+import ContactForm from "@/components/contact-form";
 
 
 
@@ -44,6 +45,7 @@ export default function PageHome() {
             />
             <StatsSection></StatsSection>
             <FAQsThree></FAQsThree>
+            <ContactForm />
         </>
     )
 }
