@@ -25,24 +25,24 @@ export default function PageHome() {
                     title="ASSOCIATION ISMAËL GHARBI"
                     description="Création et gestion du site web du footballeur international."
                     video="/Ismaelmontage.mp4"
-                    buttonText="Voir plus"
-                    buttonLink="/video"
+                    buttonText="Contactez-nous"
+                    buttonLink="#contact"
                 />
 
                 <ContentSection
                     title="HIDALGO ACADEMY"
                     description="Growth marketing et gestion web de l'académie du légendaire Michel Hidalgo. +1.5x augmentation du trafic web"
                     video="/hidalgo.mp4"
-                    buttonText="Meet the Team"
-                    buttonLink="/team"
+                    buttonText="Contactez-nous"
+                    buttonLink="#contact"
                 />
 
                 <ContentSection
                     title="BOURGO ARENA"
                     description="Création complète du branding, site web et consulting. Résultat : +1000 inscriptions avant l'ouverture"
                     video="/bourgovideo.mp4"
-                    buttonText="Meet the Team"
-                    buttonLink="/team"
+                    buttonText="Contactez-nous"
+                    buttonLink="#contact"
                 />
             </section>
 
