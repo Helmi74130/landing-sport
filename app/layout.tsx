@@ -6,6 +6,11 @@ import FooterSection from "@/components/footer";
 export const metadata: Metadata = {
   title: "Landing Sport - Agence Marketing Digital Sportif",
   description: "Agence spécialisée en marketing digital et développement web pour le secteur sportif",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
