@@ -81,7 +81,7 @@ export default function HeroSection() {
                                             size="lg"
                                             className="h-12 rounded-full pl-5 pr-3 text-base cursor-pointer"
                                         >
-                                            <Link href="#link">
+                                            <Link href="#solutions">
                                                 <span className="text-nowrap">Démarrer maintenant</span>
                                                 <motion.div
                                                     whileHover={{ x: 5 }}
@@ -98,16 +98,7 @@ export default function HeroSection() {
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                                     >
-                                        <Button
-                                            asChild
-                                            size="lg"
-                                            variant="ghost"
-                                            className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5 cursor-pointer"
-                                        >
-                                            <Link href="#link">
-                                                <span className="text-nowrap">En savoir plus</span>
-                                            </Link>
-                                        </Button>
+                                        
                                     </motion.div>
                                 </motion.div>
                             </motion.div>
@@ -176,7 +167,7 @@ export default function HeroSection() {
                                             className="mx-auto h-4 w-fit invert"
                                             style={{ filter: 'brightness(0) invert(1)', height: '40px',
                                                 width: 'auto' }}
-                                            src="/HIDA.svg"
+                                            src="/Hida.svg"
                                             alt="Column Logo"
                                         />
                                     </div>

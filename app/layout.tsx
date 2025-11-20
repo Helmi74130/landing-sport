@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import FooterSection from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Landing Sport - Agence Marketing Digital Sportif",
+  title: "Agence Marketing Digital Sportif",
   description: "Agence spécialisée en marketing digital et développement web pour le secteur sportif",
 };
 

@@ -56,7 +56,8 @@ export default function TestimonialsSection() {
                             variants={itemVariants}
                             className="text-lg font-semibold sm:text-xl md:text-3xl"
                         >
-                            Travailler avec Wii Studio a été comme débloquer un super-pouvoir marketing. C'est la fusion parfaite entre simplicité et performance, nous permettant de remplir nos créneaux et fidéliser nos membres comme jamais.
+                            On a augmenté notre trafic web de 1.5x en quelques mois. 
+Mais ce qui nous a vraiment marqués, c'est qu'ils comprennent le monde du sport.
                         </motion.p>
 
                         <motion.div
@@ -65,9 +66,10 @@ export default function TestimonialsSection() {
                         >
                             <motion.img
                                 variants={imageVariants}
+                                style={{ filter: 'brightness(0) invert(1)', height: '40px', width: 'auto' }}
                                 className="h-7 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                                alt="Nvidia Logo"
+                                src="/Hida.svg"
+                                alt="Hidalgo logo"
                                 height="20"
                                 width="auto"
                             />
