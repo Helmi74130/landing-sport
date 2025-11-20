@@ -16,32 +16,32 @@ export default function FAQsThree() {
         {
             id: 'item-1',
             icon: 'clock',
-            question: 'What are your business hours?',
-            answer: 'Our customer service team is available Monday through Friday from 9:00 AM to 8:00 PM EST, and weekends from 10:00 AM to 6:00 PM EST. During holidays, hours may vary and will be posted on our website.',
+            question: "Pourquoi choisir Wii Studio plutôt qu'une autre agence?",
+            answer: "Parce qu'on comprend le sport. Nos clients le savent. Hidalgo Academy, Bourgo Arena, Ismaël Gharbi - ce ne sont pas des hasards. C'est de l'expertise.",
         },
         {
             id: 'item-2',
             icon: 'credit-card',
-            question: 'How do subscription payments work?',
-            answer: 'Subscription payments are automatically charged to your default payment method on the same day each month or year, depending on your billing cycle. You can update your payment information and view billing history in your account dashboard.',
+            question: 'On peut avoir une évaluation de notre présence actuelle?',
+            answer: 'Oui. Une consultation gratuite pour analyser votre site, vos réseaux, votre stratégie actuelle et identifier les opportunités.',
         },
         {
             id: 'item-3',
             icon: 'truck',
-            question: 'Can I expedite my shipping?',
-            answer: 'Yes, we offer several expedited shipping options at checkout. Next-day and 2-day shipping are available for most U.S. addresses if orders are placed before 2:00 PM EST. International expedited shipping options vary by destination.',
+            question: 'Combien de ressources mobilisez-vous pour suivre notre projet?',
+            answer: 'Vous avez un point de contact dédié et une équipe dédiée selon la complexité du projet. Réunions mensuelles structurées pour suivi et validation. Pas de réunion inutile.',
         },
         {
             id: 'item-4',
             icon: 'globe',
-            question: 'Do you offer localized support?',
-            answer: 'We offer multilingual support in English, Spanish, French, German, and Japanese. Our support team can assist customers in these languages via email, chat, and phone during standard business hours for each respective region.',
+            question: 'Comment se déroule la première consultation?',
+            answer: "Audit gratuit de votre présence digitale actuelle (site, réseaux, stratégie). Analyse des opportunités. Proposition d'un plan d'action adapté. Zéro obligation.",
         },
         {
             id: 'item-5',
             icon: 'package',
-            question: 'How do I track my order?',
-            answer: 'Once your order ships, you\'ll receive a confirmation email with a tracking number. You can use this number on our website or the carrier\'s website to track your package. You can also view order status and tracking information in your account dashboard under "Order History".',
+            question: "Travaillez-vous avec des clubs à l'international?",
+            answer: "Oui. Notre expertise s'étend internationalement. Décalage horaire géré selon vos besoins.",
         },
     ]
 

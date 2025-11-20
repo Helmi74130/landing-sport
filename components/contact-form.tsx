@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
+import { motion, Variants } from 'motion/react';
 
 interface FormData {
   name: string;
@@ -25,6 +26,59 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<FormStatus>({ type: null, message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
+  const headingVariants: Variants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
+  const formContainerVariants: Variants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 20,
+        duration: 0.6,
+      },
+    },
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,7 +111,6 @@ export default function ContactForm() {
           type: 'success',
           message: 'Message envoyé avec succès! Nous vous répondrons bientôt.',
         });
-        // Réinitialiser le formulaire
         setFormData({
           name: '',
           email: '',
@@ -82,27 +135,43 @@ export default function ContactForm() {
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <motion.div
+        className="max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.div className="text-center mb-12" variants={containerVariants}>
+          <motion.h2
+            variants={headingVariants}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
             Contactez-nous
-          </h2>
-          <p className="text-muted-foreground text-lg">
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-muted-foreground text-lg"
+          >
             Une question ? Un projet ? N&apos;hésitez pas à nous écrire.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="bg-card border rounded-lg p-8 shadow-lg">
+        <motion.div
+          variants={formContainerVariants}
+          className="bg-card border rounded-lg p-8 shadow-lg"
+        >
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Nom */}
-            <div>
-              <label
+            <motion.div variants={itemVariants}>
+              <motion.label
                 htmlFor="name"
                 className="block text-sm font-medium mb-2"
+                whileHover={{ x: 5 }}
               >
                 Nom complet *
-              </label>
-              <input
+              </motion.label>
+              <motion.input
                 type="text"
                 id="name"
                 name="name"
@@ -111,18 +180,21 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
                 placeholder="Jean Dupont"
+                whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
             {/* Email */}
-            <div>
-              <label
+            <motion.div variants={itemVariants}>
+              <motion.label
                 htmlFor="email"
                 className="block text-sm font-medium mb-2"
+                whileHover={{ x: 5 }}
               >
                 Email *
-              </label>
-              <input
+              </motion.label>
+              <motion.input
                 type="email"
                 id="email"
                 name="email"
@@ -131,18 +203,21 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
                 placeholder="jean.dupont@exemple.com"
+                whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
             {/* Sujet */}
-            <div>
-              <label
+            <motion.div variants={itemVariants}>
+              <motion.label
                 htmlFor="subject"
                 className="block text-sm font-medium mb-2"
+                whileHover={{ x: 5 }}
               >
                 Sujet
-              </label>
-              <input
+              </motion.label>
+              <motion.input
                 type="text"
                 id="subject"
                 name="subject"
@@ -150,18 +225,21 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
                 placeholder="Demande d'information"
+                whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
             {/* Message */}
-            <div>
-              <label
+            <motion.div variants={itemVariants}>
+              <motion.label
                 htmlFor="message"
                 className="block text-sm font-medium mb-2"
+                whileHover={{ x: 5 }}
               >
                 Message *
-              </label>
-              <textarea
+              </motion.label>
+              <motion.textarea
                 id="message"
                 name="message"
                 required
@@ -170,64 +248,98 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
                 placeholder="Votre message..."
+                whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
             {/* Message de statut */}
             {status.type && (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 className={`p-4 rounded-lg ${
                   status.type === 'success'
                     ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800'
                     : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800'
                 }`}
               >
-                <p className="text-sm font-medium">{status.message}</p>
-              </div>
+                <motion.p
+                  className="text-sm font-medium"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  {status.message}
+                </motion.p>
+              </motion.div>
             )}
 
             {/* Bouton Submit */}
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-6 text-lg font-semibold"
-              size="lg"
-            >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg
-                    className="animate-spin h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                  Envoi en cours...
-                </span>
-              ) : (
-                'Envoyer le message'
-              )}
-            </Button>
+            <motion.div variants={itemVariants}>
+              <motion.div
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              >
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-6 text-lg font-semibold cursor-pointer"
+                  size="lg"
+                >
+                  {isSubmitting ? (
+                    <motion.span
+                      className="flex items-center justify-center gap-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <motion.svg
+                        className="h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </motion.svg>
+                      Envoi en cours...
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      Envoyer le message
+                    </motion.span>
+                  )}
+                </Button>
+              </motion.div>
+            </motion.div>
 
-            <p className="text-xs text-muted-foreground text-center">
+            <motion.p
+              variants={itemVariants}
+              className="text-xs text-muted-foreground text-center"
+            >
               * Champs obligatoires
-            </p>
+            </motion.p>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

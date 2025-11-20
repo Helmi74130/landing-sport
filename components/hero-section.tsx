@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -6,8 +7,34 @@ import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
 import { ChevronRight } from 'lucide-react'
 import { TextEffect } from "@/components/ui/text-effect";
+import { motion, Variants } from 'motion/react';
+import Image from 'next/image';
 
 export default function HeroSection() {
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.3,
+            },
+        },
+    };
+
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                stiffness: 100,
+                damping: 15,
+            },
+        },
+    };
+
     return (
         <>
             <HeroHeader />
@@ -15,135 +42,154 @@ export default function HeroSection() {
                 <section>
                     <div className="py-24 md:pb-32 lg:pb-36 lg:pt-72">
                         <div className="relative mx-auto flex max-w-7xl flex-col px-6 lg:block lg:px-12">
-                            <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
-
+                            <motion.div
+                                className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left"
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate="visible"
+                            >
                                 <TextEffect
                                     as="h1"
-                                    per="char"                // animation lettre par lettre
-                                    preset="fade-in-blur"     // effet de fade + blur
-                                    speedReveal={1}           // vitesse globale
-                                    speedSegment={0.5}        // vitesse par segment
-                                    delay={0.2}               // délai avant le début
-                                    className="mt-8 max-w-2xl text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl">Développez votre club 10x plus vite avec Wii STudio</TextEffect>
-                                <p className="mt-8 max-w-2xl text-balance text-lg">Des solutions marketing complètes et personnalisables pour transformer votre club de sport en véritable machine à conversions.</p>
+                                    per="char"
+                                    preset="fade-in-blur"
+                                    speedReveal={1}
+                                    speedSegment={0.5}
+                                    delay={0.2}
+                                    className="mt-8 max-w-2xl text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl"
+                                >
+                                    Développez votre club 10x plus vite avec Wii STudio
+                                </TextEffect>
 
-                                <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        className="h-12 rounded-full pl-5 pr-3 text-base">
-                                        <Link href="#link">
-                                            <span className="text-nowrap">Démarrer maintenant</span>
-                                            <ChevronRight className="ml-1" />
-                                        </Link>
-                                    </Button>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5">
-                                        <Link href="#link">
-                                            <span className="text-nowrap">En savoir plus</span>
-                                        </Link>
-                                    </Button>
-                                </div>
-                            </div>
+                                <motion.p
+                                    variants={itemVariants}
+                                    className="mt-8 max-w-2xl text-balance text-lg"
+                                >
+                                    Des solutions marketing complètes et personnalisables pour transformer votre club de sport en véritable machine à conversions.
+                                </motion.p>
+
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start"
+                                >
+                                    <motion.div
+                                        whileHover={{ scale: 1.05, y: -5 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                                    >
+                                        <Button
+                                            asChild
+                                            size="lg"
+                                            className="h-12 rounded-full pl-5 pr-3 text-base cursor-pointer"
+                                        >
+                                            <Link href="#link">
+                                                <span className="text-nowrap">Démarrer maintenant</span>
+                                                <motion.div
+                                                    whileHover={{ x: 5 }}
+                                                    transition={{ type: 'spring', stiffness: 400 }}
+                                                >
+                                                    <ChevronRight className="ml-1" />
+                                                </motion.div>
+                                            </Link>
+                                        </Button>
+                                    </motion.div>
+
+                                    <motion.div
+                                        whileHover={{ scale: 1.05, y: -5 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                                    >
+                                        <Button
+                                            asChild
+                                            size="lg"
+                                            variant="ghost"
+                                            className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5 cursor-pointer"
+                                        >
+                                            <Link href="#link">
+                                                <span className="text-nowrap">En savoir plus</span>
+                                            </Link>
+                                        </Button>
+                                    </motion.div>
+                                </motion.div>
+                            </motion.div>
                         </div>
-                        <div className="aspect-2/3 absolute inset-1 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+
+                        <motion.div
+                            className="aspect-2/3 absolute inset-1 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                        >
                             <video
                                 autoPlay
+                                muted
                                 loop
                                 className="size-full object-cover opacity-50 dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
-                                src="/videohero.mp4"></video>
-                        </div>
+                                src="/videohero.mp4"
+                            ></video>
+                        </motion.div>
                     </div>
                 </section>
+
                 <section className="bg-background pb-2">
                     <div className="group relative m-auto max-w-7xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
-                            <div className="md:max-w-44 md:border-r md:pr-6">
+                            <motion.div
+                                className="md:max-w-44 md:border-r md:pr-6"
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                            >
                                 <p className="text-end text-sm">Ils nous font confiance</p>
-                            </div>
+                            </motion.div>
+
                             <div className="relative py-6 md:w-[calc(100%-11rem)]">
                                 <InfiniteSlider
                                     speedOnHover={20}
                                     speed={40}
-                                    gap={112}>
+                                    gap={112}
+                                >
                                     <div className="flex">
                                         <img
-                                            className="mx-auto h-5 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                                            alt="Nvidia Logo"
-                                            height="20"
-                                            width="auto"
+                                            className="mx-auto h-5 w-fit invert"
+                                            style={{
+                                                filter: 'brightness(0) invert(1)', height: '40px',
+                                                width: 'auto'
+                                            }}
+                                            src="/ACC.svg"
+                                            alt="ACC"
+
                                         />
                                     </div>
 
                                     <div className="flex">
                                         <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/column.svg"
+                                            className="mx-auto h-4 w-fit invert"
+                                            style={{ filter: 'brightness(0) invert(1)', height: '40px',
+                                                width: 'auto' }}
+                                            src="/BA.svg"
                                             alt="Column Logo"
-                                            height="16"
-                                            width="auto"
                                         />
                                     </div>
                                     <div className="flex">
                                         <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/github.svg"
-                                            alt="GitHub Logo"
-                                            height="16"
-                                            width="auto"
+                                            className="mx-auto h-4 w-fit invert"
+                                            style={{ filter: 'brightness(0) invert(1)', height: '40px',
+                                                width: 'auto' }}
+                                            src="/HIDA.svg"
+                                            alt="Column Logo"
                                         />
                                     </div>
                                     <div className="flex">
                                         <img
-                                            className="mx-auto h-5 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/nike.svg"
-                                            alt="Nike Logo"
-                                            height="20"
-                                            width="auto"
+                                            className="mx-auto h-4 w-fit invert"
+                                            style={{ filter: 'brightness(0) invert(1)', height: '40px',
+                                                width: 'auto' }}
+                                            src="/adagiologo.svg"
+                                            alt="Column Logo"
                                         />
                                     </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-5 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
-                                            alt="Lemon Squeezy Logo"
-                                            height="20"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-4 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/laravel.svg"
-                                            alt="Laravel Logo"
-                                            height="16"
-                                            width="auto"
-                                        />
-                                    </div>
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-7 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/lilly.svg"
-                                            alt="Lilly Logo"
-                                            height="28"
-                                            width="auto"
-                                        />
-                                    </div>
-
-                                    <div className="flex">
-                                        <img
-                                            className="mx-auto h-6 w-fit dark:invert"
-                                            src="https://html.tailus.io/blocks/customers/openai.svg"
-                                            alt="OpenAI Logo"
-                                            height="24"
-                                            width="auto"
-                                        />
-                                    </div>
+                                    
                                 </InfiniteSlider>
 
                                 <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>

@@ -4,7 +4,6 @@ import Features from "@/components/features-4";
 import ContentSection from "@/components/content-3";
 import StatsSection from "@/components/stats";
 import TestimonialsSection from "@/components/testimonials";
-import { TextEffect } from "@/components/ui/text-effect";
 import ContactForm from "@/components/contact-form";
 
 
@@ -14,38 +13,49 @@ export default function PageHome() {
     return (
         <>
             <HeroSection />
-            <Features></Features>
 
-
-
+            <section id="solutions">
+                <Features></Features>
+            </section>
+            
             <TestimonialsSection></TestimonialsSection>
 
-            <ContentSection
-                title="Découvrez notre univers"
-                description="Une vidéo immersive pour présenter votre club."
-                video="/Ismaelmontage.mp4"
-                buttonText="Voir plus"
-                buttonLink="/video"
-            />
+            <section id="cases">
+                <ContentSection
+                    title="ASSOCIATION ISMAËL GHARBI"
+                    description="Création et gestion du site web du footballeur international."
+                    video="/Ismaelmontage.mp4"
+                    buttonText="Voir plus"
+                    buttonLink="/video"
+                />
 
-            <ContentSection
-                title="A creative team at your service"
-                description="Our designers and developers work hand-in-hand to create unique experiences."
-                image="/hidalgo.jpg"
-                buttonText="Meet the Team"
-                buttonLink="/team"
-            />
+                <ContentSection
+                    title="HIDALGO ACADEMY"
+                    description="Growth marketing et gestion web de l'académie du légendaire Michel Hidalgo. +1.5x augmentation du trafic web"
+                    video="/hidalgo.mp4"
+                    buttonText="Meet the Team"
+                    buttonLink="/team"
+                />
 
-            <ContentSection
-                title="A creative team at your service"
-                description="Our designers and developers work hand-in-hand to create unique experiences."
-                image="/bourgo.jpg"
-                buttonText="Meet the Team"
-                buttonLink="/team"
-            />
-            <StatsSection></StatsSection>
+                <ContentSection
+                    title="BOURGO ARENA"
+                    description="Création complète du branding, site web et consulting. Résultat : +1000 inscriptions avant l'ouverture"
+                    video="/bourgovideo.mp4"
+                    buttonText="Meet the Team"
+                    buttonLink="/team"
+                />
+            </section>
+
+            <section id="stats">
+                <StatsSection></StatsSection>
+            </section>
+            
+
+            <section id="contact">
+                <ContactForm />
+            </section>
+
             <FAQsThree></FAQsThree>
-            <ContactForm />
         </>
     )
 }

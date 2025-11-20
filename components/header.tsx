@@ -8,10 +8,12 @@ import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
+    
+    { name: 'Nos solutions', href: '#solutions' },
+    { name: 'Portfolio', href: '#cases' },
+    { name: 'Nos chiffres', href: '#stats' },
+    { name: 'Contact', href: '#contact' },
+    
 ]
 
 export const HeroHeader = () => {
@@ -81,19 +83,12 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button
-                                    asChild
-                                    variant="outline"
-                                    size="sm">
-                                    <Link href="#">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
+
                                 <Button
                                     asChild
                                     size="sm">
-                                    <Link href="#">
-                                        <span>Sign Up</span>
+                                    <Link href="#contact">
+                                        <span>Contact</span>
                                     </Link>
                                 </Button>
                             </div>
