@@ -32,7 +32,7 @@ export default function PageHome() {
                 <ContentSection
                     title="HIDALGO ACADEMY"
                     description="Growth marketing et gestion web de l'académie du légendaire Michel Hidalgo. +1.5x augmentation du trafic web"
-                    video="/hidalgo.mp4"
+                    video="/Hidalgo.mp4"
                     buttonText="Meet the Team"
                     buttonLink="/team"
                 />
