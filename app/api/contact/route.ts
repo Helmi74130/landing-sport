@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, subject, message } = await req.json();
+    const { name, email, phone, subject, message } = await req.json();
 
     // Validation des données
     if (!name || !email || !message) {
@@ -70,6 +70,7 @@ export async function POST(req: Request) {
                 <div class="info-row">
                   <span class="label">Email:</span> <a href="mailto:${email}">${email}</a>
                 </div>
+                ${phone ? `<div class="info-row"><span class="label">Téléphone:</span> <a href="tel:${phone}">${phone}</a></div>` : ''}
                 ${subject ? `<div class="info-row"><span class="label">Sujet:</span> ${subject}</div>` : ''}
                 <div class="message-box">
                   <div class="label">Message:</div>
@@ -88,6 +89,7 @@ Nouveau message de contact
 
 Nom: ${name}
 Email: ${email}
+${phone ? `Téléphone: ${phone}` : ''}
 ${subject ? `Sujet: ${subject}` : ''}
 
 Message:

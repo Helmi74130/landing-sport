@@ -3,10 +3,12 @@
 import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion, Variants } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -17,9 +19,12 @@ interface FormStatus {
 }
 
 export default function ContactForm() {
+  const t = useTranslations('contact');
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: '',
   });
@@ -109,24 +114,25 @@ export default function ContactForm() {
       if (response.ok) {
         setStatus({
           type: 'success',
-          message: 'Message envoyé avec succès! Nous vous répondrons bientôt.',
+          message: t('success'),
         });
         setFormData({
           name: '',
           email: '',
+          phone: '',
           subject: '',
           message: '',
         });
       } else {
         setStatus({
           type: 'error',
-          message: data.error || 'Une erreur est survenue lors de l\'envoi.',
+          message: data.error || t('error'),
         });
       }
     } catch (error) {
       setStatus({
         type: 'error',
-        message: 'Impossible de se connecter au serveur. Veuillez réessayer.',
+        message: t('connectionError'),
       });
     } finally {
       setIsSubmitting(false);
@@ -147,13 +153,13 @@ export default function ContactForm() {
             variants={headingVariants}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Contactez-nous
+            {t('title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="text-muted-foreground text-lg"
           >
-            Une question ? Un projet ? N&apos;hésitez pas à nous écrire.
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -169,7 +175,7 @@ export default function ContactForm() {
                 className="block text-sm font-medium mb-2"
                 whileHover={{ x: 5 }}
               >
-                Nom complet *
+                {t('name')} *
               </motion.label>
               <motion.input
                 type="text"
@@ -179,7 +185,7 @@ export default function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                placeholder="Jean Dupont"
+                placeholder={t('namePlaceholder')}
                 whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               />
@@ -192,7 +198,7 @@ export default function ContactForm() {
                 className="block text-sm font-medium mb-2"
                 whileHover={{ x: 5 }}
               >
-                Email *
+                {t('email')} *
               </motion.label>
               <motion.input
                 type="email"
@@ -202,7 +208,29 @@ export default function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                placeholder="jean.dupont@exemple.com"
+                placeholder={t('emailPlaceholder')}
+                whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              />
+            </motion.div>
+
+            {/* Téléphone */}
+            <motion.div variants={itemVariants}>
+              <motion.label
+                htmlFor="phone"
+                className="block text-sm font-medium mb-2"
+                whileHover={{ x: 5 }}
+              >
+                {t('phone')}
+              </motion.label>
+              <motion.input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                placeholder={t('phonePlaceholder')}
                 whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               />
@@ -215,7 +243,7 @@ export default function ContactForm() {
                 className="block text-sm font-medium mb-2"
                 whileHover={{ x: 5 }}
               >
-                Sujet
+                {t('subject')}
               </motion.label>
               <motion.input
                 type="text"
@@ -224,7 +252,7 @@ export default function ContactForm() {
                 value={formData.subject}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                placeholder="Demande d'information"
+                placeholder={t('subjectPlaceholder')}
                 whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               />
@@ -237,7 +265,7 @@ export default function ContactForm() {
                 className="block text-sm font-medium mb-2"
                 whileHover={{ x: 5 }}
               >
-                Message *
+                {t('message')} *
               </motion.label>
               <motion.textarea
                 id="message"
@@ -247,7 +275,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
-                placeholder="Votre message..."
+                placeholder={t('messagePlaceholder')}
                 whileFocus={{ scale: 1.02, boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               />
@@ -317,14 +345,14 @@ export default function ContactForm() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         />
                       </motion.svg>
-                      Envoi en cours...
+                      {t('sending')}
                     </motion.span>
                   ) : (
                     <motion.span
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                     >
-                      Envoyer le message
+                      {t('send')}
                     </motion.span>
                   )}
                 </Button>
@@ -335,7 +363,7 @@ export default function ContactForm() {
               variants={itemVariants}
               className="text-xs text-muted-foreground text-center"
             >
-              * Champs obligatoires
+              * {t('required')}
             </motion.p>
           </form>
         </motion.div>

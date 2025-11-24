@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "title": "Sports Digital Marketing Agency",
+    "description": "Agency specialized in digital marketing and web development for the sports sector"
+  },
+  "header": {
+    "solutions": "Our Solutions",
+    "portfolio": "Portfolio",
+    "stats": "Our Numbers",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "A question? A project? Don't hesitate to write to us.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "required": "Required fields",
+    "success": "Message sent successfully! We will get back to you soon.",
+    "error": "An error occurred while sending.",
+    "connectionError": "Unable to connect to server. Please try again.",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john.doe@example.com",
+    "phonePlaceholder": "+1 234 567 8900",
+    "subjectPlaceholder": "Information request",
+    "messagePlaceholder": "Your message..."
+  },
+  "cases": {
+    "ismael": {
+      "title": "ISMAËL GHARBI ASSOCIATION",
+      "description": "Creation and management of the international footballer's website."
+    },
+    "hidalgo": {
+      "title": "HIDALGO ACADEMY",
+      "description": "Growth marketing and web management of legendary Michel Hidalgo's academy. +1.5x increase in web traffic"
+    },
+    "bourgo": {
+      "title": "BOURGO ARENA",
+      "description": "Complete branding, website creation and consulting. Result: +1000 registrations before opening"
+    },
+    "button": "Contact Us"
+  }
+}

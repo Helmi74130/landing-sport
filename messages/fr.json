@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "title": "Agence Marketing Digital Sportif",
+    "description": "Agence spécialisée en marketing digital et développement web pour le secteur sportif"
+  },
+  "header": {
+    "solutions": "Nos solutions",
+    "portfolio": "Portfolio",
+    "stats": "Nos chiffres",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question ? Un projet ? N'hésitez pas à nous écrire.",
+    "name": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "required": "Champs obligatoires",
+    "success": "Message envoyé avec succès! Nous vous répondrons bientôt.",
+    "error": "Une erreur est survenue lors de l'envoi.",
+    "connectionError": "Impossible de se connecter au serveur. Veuillez réessayer.",
+    "namePlaceholder": "Jean Dupont",
+    "emailPlaceholder": "jean.dupont@exemple.com",
+    "phonePlaceholder": "+33 6 12 34 56 78",
+    "subjectPlaceholder": "Demande d'information",
+    "messagePlaceholder": "Votre message..."
+  },
+  "cases": {
+    "ismael": {
+      "title": "ASSOCIATION ISMAËL GHARBI",
+      "description": "Création et gestion du site web du footballeur international."
+    },
+    "hidalgo": {
+      "title": "HIDALGO ACADEMY",
+      "description": "Growth marketing et gestion web de l'académie du légendaire Michel Hidalgo. +1.5x augmentation du trafic web"
+    },
+    "bourgo": {
+      "title": "BOURGO ARENA",
+      "description": "Création complète du branding, site web et consulting. Résultat : +1000 inscriptions avant l'ouverture"
+    },
+    "button": "Contactez-nous"
+  }
+}

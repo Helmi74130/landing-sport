@@ -6,20 +6,21 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
-
-const menuItems = [
-    
-    { name: 'Nos solutions', href: '#solutions' },
-    { name: 'Portfolio', href: '#cases' },
-    { name: 'Nos chiffres', href: '#stats' },
-    { name: 'Contact', href: '#contact' },
-    
-]
+import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from '@/components/language-switcher'
 
 export const HeroHeader = () => {
+    const t = useTranslations('header')
     const [menuState, setMenuState] = React.useState(false)
     const [scrolled, setScrolled] = React.useState(false)
     const { scrollYProgress } = useScroll()
+
+    const menuItems = [
+        { name: t('solutions'), href: '#solutions' },
+        { name: t('portfolio'), href: '#cases' },
+        { name: t('stats'), href: '#stats' },
+        { name: t('contact'), href: '#contact' },
+    ]
 
     React.useEffect(() => {
         const unsubscribe = scrollYProgress.on('change', (latest) => {
@@ -83,12 +84,13 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                                <LanguageSwitcher />
 
                                 <Button
                                     asChild
                                     size="sm">
                                     <Link href="#contact">
-                                        <span>Contact</span>
+                                        <span>{t('contact')}</span>
                                     </Link>
                                 </Button>
                             </div>
