@@ -37,7 +37,7 @@ export default function PageHome() {
                 <ContentSection
                     title={t('hidalgo.title')}
                     description={t('hidalgo.description')}
-                    video="/hidalgo.mp4"
+                    video="/Hidalgo.mp4"
                     buttonText={t('button')}
                     buttonLink="#contact"
                 />
