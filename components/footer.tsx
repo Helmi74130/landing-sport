@@ -1,30 +1,33 @@
+'use client';
 import { Logo } from '@/components/logo'
 import Link from 'next/link'
-
-const links = [
-    {
-        title: 'Accueil',
-        href: '/',
-    },
-    {
-        title: 'Nos solutions',
-        href: '#solutions',
-    },
-    {
-        title: 'Portfolio',
-        href: '#cases',
-    },
-    {
-        title: 'Nos chiffres',
-        href: '#stats',
-    },
-    {
-        title: 'Contact',
-        href: '#contact',
-    },
-]
+import { useTranslations } from 'next-intl'
 
 export default function FooterSection() {
+    const t = useTranslations('footer')
+
+    const links = [
+        {
+            title: t('home'),
+            href: '/',
+        },
+        {
+            title: t('solutions'),
+            href: '#solutions',
+        },
+        {
+            title: t('portfolio'),
+            href: '#cases',
+        },
+        {
+            title: t('stats'),
+            href: '#stats',
+        },
+        {
+            title: t('contact'),
+            href: '#contact',
+        },
+    ]
     return (
         <footer className="py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
@@ -66,7 +69,7 @@ export default function FooterSection() {
                     </Link>
                     
                 </div>
-                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Wii Studio, Tous droits réservés</span>
+                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Wii Studio, {t('copyright')}</span>
             </div>
         </footer>
     )

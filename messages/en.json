@@ -9,6 +9,87 @@
     "stats": "Our Numbers",
     "contact": "Contact"
   },
+  "hero": {
+    "title": "Grow your sports club 10x faster with Wii Studio",
+    "subtitle": "Complete, customizable marketing solutions to transform your sports club into a true conversion machine.",
+    "cta": "Get Started Now",
+    "trustSection": "They trust us"
+  },
+  "features": {
+    "title": "The complete solution to propel your sports club",
+    "subtitle": "Wii Studio is evolving to become much more than an agency. We offer a complete ecosystem of digital services to help sports clubs innovate and grow.",
+    "website": {
+      "title": "Website",
+      "description": "Create a digital showcase that attracts and converts your future members 24/7."
+    },
+    "app": {
+      "title": "Mobile App",
+      "description": "Build member loyalty with a dedicated app for bookings and tracking."
+    },
+    "strategy": {
+      "title": "Strategy",
+      "description": "Grow your club with a custom, results-oriented marketing plan."
+    },
+    "design": {
+      "title": "Design",
+      "description": "Stand out with a striking visual identity that reflects your values."
+    },
+    "video": {
+      "title": "Video",
+      "description": "Capture attention and boost conversions with impactful video content."
+    },
+    "community": {
+      "title": "Community Management",
+      "description": "Engage your community and turn your members into ambassadors."
+    }
+  },
+  "testimonials": {
+    "quote": "We increased our web traffic by 1.5x in just a few months. But what really impressed us is that they understand the world of sports.",
+    "author": "Zino",
+    "role": "Academic Manager, Hidalgo Academy"
+  },
+  "stats": {
+    "title": "Concrete, measurable, and sustainable results.",
+    "subtitle": "We support sports clubs and brands every day in their digital growth.",
+    "projects": "projects completed",
+    "countries": "countries where our clients are growing",
+    "satisfaction": "client satisfaction"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Can't find what you're looking for? Contact our",
+    "supportLink": "customer support team",
+    "questions": [
+      {
+        "question": "Why choose Wii Studio over another agency?",
+        "answer": "Because we understand sports. Our clients know it. Hidalgo Academy, Bourgo Arena, Ismaël Gharbi - these are not coincidences. This is expertise."
+      },
+      {
+        "question": "Can we get an assessment of our current presence?",
+        "answer": "Yes. A free consultation to analyze your website, social media, current strategy and identify opportunities."
+      },
+      {
+        "question": "How many resources do you allocate to follow our project?",
+        "answer": "You have a dedicated point of contact and a dedicated team based on project complexity. Structured monthly meetings for monitoring and validation. No unnecessary meetings."
+      },
+      {
+        "question": "How does the first consultation work?",
+        "answer": "Free audit of your current digital presence (website, social media, strategy). Opportunity analysis. Proposal for an adapted action plan. Zero obligation."
+      },
+      {
+        "question": "Do you work with international clubs?",
+        "answer": "Yes. Our expertise extends internationally. Time zones managed according to your needs."
+      }
+    ]
+  },
+  "footer": {
+    "home": "Home",
+    "solutions": "Our Solutions",
+    "portfolio": "Portfolio",
+    "stats": "Our Numbers",
+    "contact": "Contact",
+    "copyright": "All rights reserved"
+  },
   "contact": {
     "title": "Contact Us",
     "subtitle": "A question? A project? Don't hesitate to write to us.",
