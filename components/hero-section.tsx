@@ -9,8 +9,11 @@ import { ChevronRight } from 'lucide-react'
 import { TextEffect } from "@/components/ui/text-effect";
 import { motion, Variants } from 'motion/react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function HeroSection() {
+    const t = useTranslations('hero');
+
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -57,14 +60,14 @@ export default function HeroSection() {
                                     delay={0.2}
                                     className="mt-8 max-w-2xl text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl"
                                 >
-                                    Développez votre club 10x plus vite avec Wii STudio
+                                    {t('title')}
                                 </TextEffect>
 
                                 <motion.p
                                     variants={itemVariants}
                                     className="mt-8 max-w-2xl text-balance text-lg"
                                 >
-                                    Des solutions marketing complètes et personnalisables pour transformer votre club de sport en véritable machine à conversions.
+                                    {t('subtitle')}
                                 </motion.p>
 
                                 <motion.div
@@ -82,7 +85,7 @@ export default function HeroSection() {
                                             className="h-12 rounded-full pl-5 pr-3 text-base cursor-pointer"
                                         >
                                             <Link href="#solutions">
-                                                <span className="text-nowrap">Démarrer maintenant</span>
+                                                <span className="text-nowrap">{t('cta')}</span>
                                                 <motion.div
                                                     whileHover={{ x: 5 }}
                                                     transition={{ type: 'spring', stiffness: 400 }}
@@ -131,7 +134,7 @@ export default function HeroSection() {
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                <p className="text-end text-sm">Ils nous font confiance</p>
+                                <p className="text-end text-sm">{t('trustSection')}</p>
                             </motion.div>
 
                             <div className="relative py-6 md:w-[calc(100%-11rem)]">

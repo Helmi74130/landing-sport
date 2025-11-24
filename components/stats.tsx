@@ -1,8 +1,10 @@
 'use client';
 import { motion, Variants, animate, useMotionValue, useTransform } from 'motion/react';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function StatsSection() {
+    const t = useTranslations('stats');
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -80,10 +82,10 @@ export default function StatsSection() {
                         variants={headingVariants}
                         className="text-4xl font-medium lg:text-5xl"
                     >
-                        Des résultats concrets, mesurables et durables.
+                        {t('title')}
                     </motion.h2>
                     <motion.p variants={headingVariants}>
-                        Nous accompagnons chaque jour des clubs et marques sportives dans leur croissance digitale.
+                        {t('subtitle')}
                     </motion.p>
                 </motion.div>
 
@@ -99,7 +101,7 @@ export default function StatsSection() {
                             +<motion.span>{rounded1}</motion.span>
                         </motion.div>
                         <motion.p variants={headingVariants}>
-                            projets menés
+                            {t('projects')}
                         </motion.p>
                     </motion.div>
 
@@ -111,7 +113,7 @@ export default function StatsSection() {
                             +<motion.span>{rounded2}</motion.span>
                         </motion.div>
                         <motion.p variants={headingVariants}>
-                            pays où nos clients se développent
+                            {t('countries')}
                         </motion.p>
                     </motion.div>
 
@@ -123,7 +125,7 @@ export default function StatsSection() {
                             <motion.span>{rounded3}</motion.span>%
                         </motion.div>
                         <motion.p variants={headingVariants}>
-                            satisfaction client
+                            {t('satisfaction')}
                         </motion.p>
                     </motion.div>
                 </motion.div>

@@ -1,7 +1,9 @@
 'use client';
 import { motion, Variants } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 export default function TestimonialsSection() {
+    const t = useTranslations('testimonials');
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -56,8 +58,7 @@ export default function TestimonialsSection() {
                             variants={itemVariants}
                             className="text-lg font-semibold sm:text-xl md:text-3xl"
                         >
-                            On a augmenté notre trafic web de 1.5x en quelques mois. 
-Mais ce qui nous a vraiment marqués, c'est qu'ils comprennent le monde du sport.
+                            {t('quote')}
                         </motion.p>
 
                         <motion.div
@@ -81,13 +82,13 @@ Mais ce qui nous a vraiment marqués, c'est qu'ils comprennent le monde du sport
                                     variants={itemVariants}
                                     className="font-medium block"
                                 >
-                                    Zino
+                                    {t('author')}
                                 </motion.cite>
                                 <motion.span
                                     variants={itemVariants}
                                     className="text-muted-foreground block text-sm"
                                 >
-                                    Academic Manager, Hidalgo Academy
+                                    {t('role')}
                                 </motion.span>
                             </motion.div>
                         </motion.div>
