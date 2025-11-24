@@ -1,3 +1,5 @@
+'use client';
+
 import FAQsThree from "@/components/faqs-3";
 import HeroSection from "@/components/hero-section";
 import Features from "@/components/features-4";
@@ -5,11 +7,14 @@ import ContentSection from "@/components/content-3";
 import StatsSection from "@/components/stats";
 import TestimonialsSection from "@/components/testimonials";
 import ContactForm from "@/components/contact-form";
+import { useTranslations } from 'next-intl';
 
 
 
 
 export default function PageHome() {
+    const t = useTranslations('cases');
+
     return (
         <>
             <HeroSection />
@@ -17,31 +22,31 @@ export default function PageHome() {
             <section id="solutions">
                 <Features></Features>
             </section>
-            
+
             <TestimonialsSection></TestimonialsSection>
 
             <section id="cases">
                 <ContentSection
-                    title="ASSOCIATION ISMAËL GHARBI"
-                    description="Création et gestion du site web du footballeur international."
+                    title={t('ismael.title')}
+                    description={t('ismael.description')}
                     video="/Ismaelmontage.mp4"
-                    buttonText="Contactez-nous"
+                    buttonText={t('button')}
                     buttonLink="#contact"
                 />
 
                 <ContentSection
-                    title="HIDALGO ACADEMY"
-                    description="Growth marketing et gestion web de l'académie du légendaire Michel Hidalgo. +1.5x augmentation du trafic web"
+                    title={t('hidalgo.title')}
+                    description={t('hidalgo.description')}
                     video="/hidalgo.mp4"
-                    buttonText="Contactez-nous"
+                    buttonText={t('button')}
                     buttonLink="#contact"
                 />
 
                 <ContentSection
-                    title="BOURGO ARENA"
-                    description="Création complète du branding, site web et consulting. Résultat : +1000 inscriptions avant l'ouverture"
+                    title={t('bourgo.title')}
+                    description={t('bourgo.description')}
                     video="/bourgovideo.mp4"
-                    buttonText="Contactez-nous"
+                    buttonText={t('button')}
                     buttonLink="#contact"
                 />
             </section>
@@ -49,7 +54,7 @@ export default function PageHome() {
             <section id="stats">
                 <StatsSection></StatsSection>
             </section>
-            
+
 
             <section id="contact">
                 <ContactForm />

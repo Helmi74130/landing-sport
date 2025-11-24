@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils"
 export const Logo = ({ className }: { className?: string }) => {
   return (
     <Image
-      src="/logo.png"   // <-- mets ton fichier ici
+      src="/Logo.png"
       alt="Wii Studio Logo"
-      width={60}       // <-- adapte la taille si tu veux
+      width={60}
       height={40}
-      priority          // le logo se charge en priorité
+      priority
       className={cn("h-auto w-auto", className)}
     />
   )
@@ -17,7 +17,7 @@ export const Logo = ({ className }: { className?: string }) => {
 export const LogoIcon = ({ className }: { className?: string }) => {
   return (
     <Image
-      src="/logo.png"
+      src="/Logo.png"
       alt="Wii Studio Icon"
       width={36}
       height={36}
